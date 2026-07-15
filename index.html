@@ -6,191 +6,305 @@
 
   <title>아르카나 조합표</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 20px;
-      font-family: Arial, "Noto Sans KR", sans-serif;
-      background-color: #ffffff;
-      color: #4a5568;
-    }
-
-    .tables-container {
-      width: 100%;
-      max-width: 1500px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(680px, 1fr) minmax(560px, 0.8fr);
-      gap: 24px;
-      align-items: start;
-    }
-
-    .table-section {
-      min-width: 0;
-    }
-
-    .table-section h2 {
-      margin: 0 0 12px;
-      text-align: center;
-      color: #2d3748;
-      font-size: 22px;
-    }
-
-    .table-wrap {
-      width: 100%;
-      overflow-x: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      table-layout: fixed;
-      background-color: #f7f8fb;
-      border: 3px solid #222222;
-    }
-
-    th,
-    td {
-      border: 1px solid #222222;
-      padding: 10px 8px;
-      text-align: center;
-      vertical-align: middle;
-      font-size: 15px;
-      font-weight: 400;
-    }
-
-    thead th {
-      background-color: #dbe8f5;
-      font-weight: 700;
-    }
-
-    tbody td {
-      background-color: #f8f9fc;
-    }
-
-    tbody tr:hover td {
-      background-color: #eef4fb;
-    }
-
-    /* 왼쪽 조합표 */
-    .combo-table {
-      min-width: 680px;
-    }
-
-    .combo-table .arcana {
-      width: 28%;
-    }
-
-    .combo-table .combination {
-      width: 14%;
-    }
-
-    .combo-table .skill {
-      width: 30%;
-    }
-
-    .combo-table tbody tr:nth-child(3n + 1) td {
-      border-top: 3px solid #222222;
-    }
-
-    .combo-table tbody tr:first-child td {
-      border-top: 1px solid #222222;
-    }
-
-    .combo-table td[rowspan] {
-      font-weight: 700;
-      background-color: #e8f0f8;
-    }
-
-
-/* 오른쪽 아르카나 효과표 */
-.effect-table {
-  min-width: 560px;
+/*  1. 모든 요소의 크기 계산 방식을 통일  padding과 border가 실제 너비 안에 포함됨 */
+* {
+  box-sizing: border-box;
 }
 
-/* 오른쪽 표 전체 높이와 글자 크기 */
+
+/* ========================================
+   2. 페이지 전체 기본 설정
+======================================== */
+body {
+  margin: 0;
+  padding: 16px;
+
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  color: #4a5568;
+  background-color: #ffffff;
+}
+
+
+/* ========================================
+   3. 왼쪽·오른쪽 표 배치 영역
+
+   왼쪽 표: 조금 넓게
+   오른쪽 표: 조금 좁게
+======================================== */
+.tables-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: grid;
+
+  /* 왼쪽 1.1 : 오른쪽 0.9 비율 */
+  grid-template-columns:
+    minmax(600px, 1.1fr)
+    minmax(500px, 0.9fr);
+
+  gap: 18px;
+  align-items: start;
+}
+
+
+/* ========================================
+   4. 각 표가 들어가는 영역
+======================================== */
+.table-section {
+  min-width: 0;
+}
+
+
+/* 표 위 제목 */
+.table-section h2 {
+  margin: 0 0 10px;
+
+  text-align: center;
+  color: #2d3748;
+  font-size: 19px;
+}
+
+
+/* 화면이 좁을 때 가로 스크롤 허용 */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+/* ========================================
+   5. 모든 표의 공통 디자인
+
+   표 테두리와 배경만 공통으로 설정
+   글씨 크기와 높이는 아래에서 각각 설정
+======================================== */
+table {
+  width: 100%;
+  border: 2px solid #222222;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background-color: #f7f8fb;
+}
+
+
+/* 모든 표 칸 공통 설정 */
+th,
+td {
+  border: 1px solid #222222;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 400;
+}
+
+
+/* 표 제목 행 */
+thead th {
+  background-color: #dbe8f5;
+  font-weight: 700;
+}
+
+
+/* 표 내용 배경 */
+tbody td {
+  background-color: #f8f9fc;
+}
+
+
+/* 마우스를 올렸을 때 행 강조 */
+tbody tr:hover td {
+  background-color: #eef4fb;
+}
+
+
+/* ========================================
+   6. 왼쪽 아르카나 조합표
+
+   기존보다 글씨와 행 높이를 줄임
+======================================== */
+.combo-table {
+  min-width: 600px;
+}
+
+
+/* 왼쪽 표의 모든 제목·내용 칸 */
+.combo-table th,
+.combo-table td {
+  /* 위아래 6px, 좌우 5px */
+  padding: 6px 5px;
+
+  /* 기존 15px에서 13px로 축소 */
+  font-size: 13px;
+
+  /* 줄 높이를 줄여 전체 높이 축소 */
+  line-height: 1.2;
+}
+
+
+/* 아르카나 이름 열 너비 */
+.combo-table .arcana {
+  width: 25%;
+}
+
+
+/* 각 조합 열 너비 */
+.combo-table .combination {
+  width: 13%;
+}
+
+
+/* 변화 스킬 열 너비 */
+.combo-table .skill {
+  width: 30%;
+}
+
+
+/* 아르카나가 새로 시작하는 줄에 굵은 구분선 */
+.combo-table tbody tr:nth-child(3n + 1) td {
+  border-top: 2px solid #222222;
+}
+
+
+/* 첫 번째 줄 위에는 굵은 선이 중복되지 않게 함 */
+.combo-table tbody tr:first-child td {
+  border-top: 1px solid #222222;
+}
+
+
+/* 아르카나 이름이 들어간 병합 셀 */
+.combo-table td[rowspan] {
+  padding: 5px;
+  font-weight: 700;
+  background-color: #e8f0f8;
+}
+
+
+/* ========================================
+   7. 오른쪽 아르카나 효과표
+
+   왼쪽보다 더 작은 글씨와 높이 사용
+======================================== */
+.effect-table {
+  min-width: 500px;
+}
+
+
+/* 오른쪽 표의 모든 제목·내용 칸 */
 .effect-table th,
 .effect-table td {
-  padding: 4px 6px;
+  padding: 4px 5px;
   font-size: 12px;
   line-height: 1.15;
+
   text-align: center;
   vertical-align: middle;
 }
 
-/* 구분 열 */
+
+/* 첫 번째 열: 엘나, 세바 등의 구분 열 */
 .effect-table th:first-child {
-  width: 65px;
+  width: 60px;
 }
 
-/* 수치 열 */
+
+/* 마지막 열: [10] 수치 열 */
 .effect-table th:last-child {
-  width: 55px;
+  width: 50px;
 }
 
-/* 효과 내용 */
-.effect-table td:not(.arcana-name):not(:last-child) {
-  text-align: center;
-  word-break: keep-all;
-}
 
-/* [10] 수치 */
-.effect-table td:last-child {
-  width: 55px;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* 엘나, 세바 등 아르카나 이름 */
+/* 아르카나 이름 셀 */
 .effect-table .arcana-name {
-  width: 65px;
+  width: 60px;
   padding: 4px;
+
   font-weight: 700;
   text-align: center;
   vertical-align: middle;
   white-space: nowrap;
+
   background-color: #dbe8f5;
 }
 
-/* 아르카나별 굵은 구분선 */
-.effect-table .group-start td {
-  border-top: 3px solid #222222;
+
+/* 효과 설명 셀
+
+   arcana-name이 아니고,
+   각 행의 마지막 수치 칸도 아닌 셀을 선택
+*/
+.effect-table td:not(.arcana-name):not(:last-child) {
+  padding-left: 5px;
+  padding-right: 5px;
+
+  text-align: center;
+  word-break: keep-all;
 }
 
-/* 첫 줄은 중복된 굵은 선 제거 */
+
+/* [10]이 들어가는 마지막 셀
+
+   rowspan 때문에 nth-child를 사용하면
+   행마다 열 위치가 달라질 수 있으므로
+   last-child를 사용하는 것이 안전함
+*/
+.effect-table td:last-child {
+  width: 50px;
+  padding-left: 2px;
+  padding-right: 2px;
+
+  text-align: center;
+  white-space: nowrap;
+}
+
+
+/* 아르카나 효과 그룹별 굵은 구분선 */
+.effect-table .group-start td {
+  border-top: 2px solid #222222;
+}
+
+
+/* 첫 그룹의 위쪽 선 중복 제거 */
 .effect-table tbody tr:first-child td {
   border-top: 1px solid #222222;
 }
 
-    
-    @media (max-width: 1450px) {
-      .tables-container {
-        grid-template-columns: 1fr;
-      }
-    }
 
-    @media (max-width: 700px) {
-      body {
-        padding: 8px;
-      }
+/* ========================================
+   8. 화면 폭이 좁아지면 표를 위아래로 배치
+======================================== */
+@media (max-width: 1200px) {
+  .tables-container {
+    grid-template-columns: 1fr;
+    max-width: 760px;
+  }
+}
 
-      th,
-      td {
-        padding: 8px 6px;
-        font-size: 13px;
-      }
 
-      .table-section h2 {
-        font-size: 19px;
-      }
-    }
-  </style>
+/* ========================================
+   9. 휴대폰 화면 설정
+======================================== */
+@media (max-width: 700px) {
+  body {
+    padding: 8px;
+  }
+
+  .table-section h2 {
+    font-size: 17px;
+  }
+
+  /* 휴대폰에서도 너무 크게 보이지 않게 조절 */
+  .combo-table th,
+  .combo-table td {
+    padding: 5px 4px;
+    font-size: 12px;
+  }
+
+  .effect-table th,
+  .effect-table td {
+    padding: 3px 4px;
+    font-size: 11px;
+  }
+}
 </head>
 
 <body>
