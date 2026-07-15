@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>아르카나 조합표</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background-color: #ffffff;
+      color: #4a5568;
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      max-width: 760px;
+      min-width: 650px;
+      margin: 0 auto;
+      border-collapse: collapse;
+      table-layout: fixed;
+      background-color: #f7f8fb;
+    }
+
+    th,
+    td {
+      border: 1px solid #222222;
+      padding: 10px 8px;
+      text-align: center;
+      vertical-align: middle;
+      font-size: 15px;
+      font-weight: 400;
+    }
+
+    thead th {
+      background-color: #dbe8f5;
+    }
+
+    .arcana {
+      width: 28%;
+    }
+
+    .combination {
+      width: 14%;
+    }
+
+    .skill {
+      width: 30%;
+    }
+
+    tbody td {
+      background-color: #f8f9fc;
+    }
+
+    tbody tr:hover td {
+      background-color: #eef4fb;
+    }
+
+    @media (max-width: 700px) {
+      body {
+        padding: 8px;
+      }
+
+      th,
+      td {
+        padding: 8px 6px;
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th class="arcana">아르카나</th>
+          <th colspan="3">조합 오검</th>
+          <th class="skill">변화 스킬</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td rowspan="2">엘레멘탈 나이트</td>
+          <td class="combination">베헤</td>
+          <td class="combination">쿨</td>
+          <td class="combination">케르트</td>
+          <td>라이트닝 스매시</td>
+        </tr>
+        <tr>
+          <td>닌</td>
+          <td>루스</td>
+          <td>우르</td>
+          <td>파이어 리프 어택</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">세인트 바드</td>
+          <td>살</td>
+          <td>오르</td>
+          <td>폐헤</td>
+          <td>정화의 고동</td>
+        </tr>
+        <tr>
+          <td>닌</td>
+          <td>티너</td>
+          <td>민</td>
+          <td>음파의 세례</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">다크 메이지</td>
+          <td>베헤</td>
+          <td>스트라프</td>
+          <td>일란드</td>
+          <td>스노우 스톰</td>
+        </tr>
+        <tr>
+          <td>리스</td>
+          <td>우호</td>
+          <td>온</td>
+          <td>익스플로전 런지</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">알케믹 스팅어</td>
+          <td>페른</td>
+          <td>이다드</td>
+          <td>에바드</td>
+          <td>트라이 어설트</td>
+        </tr>
+        <tr>
+          <td>살</td>
+          <td>다르</td>
+          <td>에다드</td>
+          <td>하이드로 피어스</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">세이크리드 가드</td>
+          <td>리스</td>
+          <td>티너</td>
+          <td>온</td>
+          <td>광휘의 단죄</td>
+        </tr>
+        <tr>
+          <td>살</td>
+          <td>고르트</td>
+          <td>이다드</td>
+          <td>철벽 강타</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">블래스트 랜서</td>
+          <td>닌</td>
+          <td>다르</td>
+          <td>폐헤</td>
+          <td>차지 어설트</td>
+        </tr>
+        <tr>
+          <td>베헤</td>
+          <td>에다드</td>
+          <td>에바드</td>
+          <td>오버 드라이브</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">베리어블 거너</td>
+          <td>페른</td>
+          <td>고르트</td>
+          <td>오르</td>
+          <td>헤비 아틸러리</td>
+        </tr>
+        <tr>
+          <td>베헤</td>
+          <td>우호</td>
+          <td>이핀</td>
+          <td>트랜스뮤트 존</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">포비든 알케미스트</td>
+          <td>살</td>
+          <td>알름</td>
+          <td>에바드</td>
+          <td>스파이럴 이럽션</td>
+        </tr>
+        <tr>
+          <td>리스</td>
+          <td>쿨</td>
+          <td>우르</td>
+          <td>케미컬 카니발</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">멜로딕 퍼피티어</td>
+          <td>리스</td>
+          <td>게탈</td>
+          <td>스트라프</td>
+          <td>인터루트 슬래시</td>
+        </tr>
+        <tr>
+          <td>페른</td>
+          <td>민</td>
+          <td>이핀</td>
+          <td>다운비트 악센트</td>
+        </tr>
+
+        <tr>
+          <td rowspan="2">퓨리 파이터</td>
+          <td>닌</td>
+          <td>알름</td>
+          <td>에만쿨</td>
+          <td>게일 피어스</td>
+        </tr>
+        <tr>
+          <td>페른</td>
+          <td>케르트</td>
+          <td>일란드</td>
+          <td>얼티밋 스트라이크</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
