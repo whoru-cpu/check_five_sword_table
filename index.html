@@ -2,7 +2,11 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>아르카나 조합표</title>
 
@@ -13,156 +17,115 @@
 
     body {
       margin: 0;
-      padding: 20px;
+      padding: 6px 14px 30px;
       font-family: Arial, "Noto Sans KR", sans-serif;
       background-color: #ffffff;
-      color: #4a5568;
+      color: #344e68;
     }
 
-    .tables-container {
+    /* 전체 영역 */
+    .table-container {
       width: 100%;
-      max-width: 1500px;
+      max-width: 1000px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: minmax(680px, 1fr) minmax(560px, 0.8fr);
-      gap: 24px;
-      align-items: start;
     }
 
-    .table-section {
-      min-width: 0;
-    }
-
-    .table-section h2 {
+    /* 제목 */
+    h1 {
       margin: 0 0 12px;
       text-align: center;
-      color: #2d3748;
       font-size: 22px;
+      font-weight: 700;
+      color: #263f58;
     }
 
-    .table-wrap {
+    /* 모바일에서 가로 스크롤 */
+    .table-scroll {
       width: 100%;
       overflow-x: auto;
     }
 
     table {
       width: 100%;
+      min-width: 740px;
       border-collapse: collapse;
       table-layout: fixed;
+      border: 2px solid #222222;
       background-color: #f7f8fb;
-      border: 3px solid #222222;
     }
 
     th,
     td {
-      border: 1px solid #222222;
-      padding: 10px 8px;
+      height: 39px;
+      padding: 8px 6px;
+      border: 1px solid #333333;
       text-align: center;
       vertical-align: middle;
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 400;
     }
 
+    /* 표 머리글 */
     thead th {
-      background-color: #dbe8f5;
+      background-color: #d6e4f2;
+      color: #344e68;
       font-weight: 700;
     }
 
+    /* 일반 셀 */
     tbody td {
-      background-color: #f8f9fc;
+      background-color: #f7f8fb;
     }
 
-    tbody tr:hover td {
-      background-color: #eef4fb;
+    /* 아르카나 이름 셀 */
+    .arcana-name {
+      background-color: #e4eef8;
+      font-weight: 700;
+      color: #294967;
     }
 
-    /* 왼쪽 조합표 */
-    .combo-table {
-      min-width: 680px;
+    /* 각 아르카나 그룹의 시작선 */
+    tbody tr.group-start td {
+      border-top-width: 2px;
     }
 
-    .combo-table .arcana {
+    /* 첫 번째 줄은 일반 테두리 */
+    tbody tr:first-child td {
+      border-top-width: 1px;
+    }
+
+    /* 마우스를 올렸을 때 */
+    tbody tr:hover td:not(.arcana-name) {
+      background-color: #edf3f9;
+    }
+
+    /* 열 너비 */
+    .column-arcana {
       width: 28%;
     }
 
-    .combo-table .combination {
+    .column-combination {
       width: 14%;
     }
 
-    .combo-table .skill {
+    .column-skill {
       width: 30%;
     }
 
-    .combo-table tbody tr:nth-child(3n + 1) td {
-      border-top: 3px solid #222222;
-    }
-
-    .combo-table tbody tr:first-child td {
-      border-top: 1px solid #222222;
-    }
-
-    .combo-table td[rowspan] {
-      font-weight: 700;
-      background-color: #e8f0f8;
-    }
-
-    /* 오른쪽 효과표 최소 너비*/
-    .effect-table {
-      min-width: 560px;
-    }
-
-    .effect-table th:nth-child(1) {
-      width: 90px;
-    }
-
-    .effect-table th:nth-child(2) {
-      width: auto;
-    }
-
-    .effect-table th:nth-child(3) {
-      width: 70px;
-    }
-
-    .effect-table td:nth-child(2) {
-      text-align: cneter;
-      padding-left: 0px;
-      line-height: 1.5;
-      word-break: keep-all;
-    }
-
-    .effect-table .arcana-name {
-      font-weight: 700;
-      background-color: #dbe8f5;
-      white-space: nowrap;
-    }
-
-    .effect-table .group-start td {
-      border-top: 3px solid #222222;
-    }
-
-    .effect-table tbody tr:first-child td {
-      border-top: 1px solid #222222;
-    }
-
-    @media (max-width: 1450px) {
-      .tables-container {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       body {
-        padding: 8px;
+        padding: 6px 8px 20px;
+      }
+
+      h1 {
+        font-size: 20px;
       }
 
       th,
       td {
-        padding: 8px 6px;
+        height: 37px;
+        padding: 7px 5px;
         font-size: 13px;
-      }
-
-      .table-section h2 {
-        font-size: 19px;
       }
     }
   </style>
@@ -170,225 +133,297 @@
 
 <body>
 
-  <div class="tables-container">
+  <main class="table-container">
 
-    <!-- 왼쪽: 아르카나 조합표 -->
-    <section class="table-section">
-      <h2>아르카나 조합표</h2>
+    <h1>아르카나 조합표</h1>
 
-      <div class="table-wrap">
-        <table class="combo-table">
-          <thead>
-            <tr>
-              <th class="arcana">아르카나</th>
-              <th colspan="3">조합 오검</th>
-              <th class="skill">변화 스킬</th>
-            </tr>
-          </thead>
+    <div class="table-scroll">
 
-          <tbody>
-            <tr>
-              <td rowspan="3">엘레멘탈 나이트</td>
-              <td class="combination">베헤</td>
-              <td class="combination">쿨</td>
-              <td class="combination">케르트</td>
-              <td>라이트닝 스매시</td>
-            </tr>
-            <tr>
-              <td>닌</td>
-              <td>루스</td>
-              <td>우르</td>
-              <td>파이어 리프 어택</td>
-            </tr>
-            <tr>
-              <td>리스</td>
-              <td>티너</td>
-              <td>페헤</td>
-              <td>8월 예정</td>
-            </tr>
+      <table>
+        <thead>
+          <tr>
+            <th class="column-arcana">아르카나</th>
+            <th colspan="3">조합 오검</th>
+            <th class="column-skill">변화 스킬</th>
+          </tr>
+        </thead>
 
-            <tr>
-              <td rowspan="3">세인트 바드</td>
-              <td>살</td>
-              <td>오르</td>
-              <td>페헤</td>
-              <td>정화의 고동</td>
-            </tr>
-            <tr>
-              <td>닌</td>
-              <td>티너</td>
-              <td>민</td>
-              <td>음파의 세례</td>
-            </tr>
-            <tr>
-              <td>페른</td>
-              <td>콜</td>
-              <td>일란드</td>
-              <td>8월 예정</td>
-            </tr>
+        <tbody>
 
-            <tr>
-              <td rowspan="3">다크 메이지</td>
-              <td>베헤</td>
-              <td>스트라프</td>
-              <td>일란드</td>
-              <td>스노우 스톰</td>
-            </tr>
-            <tr>
-              <td>리스</td>
-              <td>우흐</td>
-              <td>온</td>
-              <td>익스플로전 런지</td>
-            </tr>
-            <tr>
-              <td>살</td>
-              <td>고르트</td>
-              <td>에만콜</td>
-              <td>8월 예정</td>
-            </tr>
+          <!-- 엘레멘탈 나이트 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              엘레멘탈 나이트
+            </td>
 
-            <tr>
-              <td rowspan="3">알케믹 스팅어</td>
-              <td>페른</td>
-              <td>이다드</td>
-              <td>에바드</td>
-              <td>트라이 어설트</td>
-            </tr>
-            <tr>
-              <td>살</td>
-              <td>다르</td>
-              <td>에다드</td>
-              <td>하이드로 피어스</td>
-            </tr>
-            <tr>
-              <td>닌</td>
-              <td>케르트</td>
-              <td>에만콜</td>
-              <td>8월 예정</td>
-            </tr>
+            <td class="column-combination">베헤</td>
+            <td class="column-combination">쿨</td>
+            <td class="column-combination">케르트</td>
+            <td>라이트닝 스매시</td>
+          </tr>
 
-            <tr>
-              <td rowspan="3">세이크리드 가드</td>
-              <td>리스</td>
-              <td>티너</td>
-              <td>온</td>
-              <td>광휘의 단죄</td>
-            </tr>
-            <tr>
-              <td>살</td>
-              <td>고르트</td>
-              <td>이다드</td>
-              <td>철벽 강타</td>
-            </tr>
-            <tr>
-              <td>베헤</td>
-              <td>게탈</td>
-              <td>이핀</td>
-              <td>8월 예정</td>
-            </tr>
+          <tr>
+            <td>닌</td>
+            <td>루스</td>
+            <td>우르</td>
+            <td>파이어 리프 어택</td>
+          </tr>
 
-            <tr>
-              <td rowspan="3">블래스트 랜서(장애)</td>
-              <td>닌</td>
-              <td>다르</td>
-              <td>페헤</td>
-              <td>차지 어설트</td>
-            </tr>
-            <tr>
-              <td>베헤</td>
-              <td>에다드</td>
-              <td>에바드</td>
-              <td>오버 드라이브</td>
-            </tr>
-            <tr>
-              <td>리스</td>
-              <td>루스</td>
-              <td>알름</td>
-              <td>8월 예정</td>
-            </tr>
+          <tr>
+            <td>리스</td>
+            <td>티너</td>
+            <td>페헤</td>
+            <td>8월 예정</td>
+          </tr>
 
-            <tr>
-              <td rowspan="3">베리어블 거너</td>
-              <td>페른</td>
-              <td>고르트</td>
-              <td>오르</td>
-              <td>헤비 아틸러리</td>
-            </tr>
-            <tr>
-              <td>베헤</td>
-              <td>우흐</td>
-              <td>이핀</td>
-              <td>트랜스뮤트 존</td>
-            </tr>
-            <tr>
-              <td>살</td>
-              <td>민</td>
-              <td>이다드</td>
-              <td>8월 예정</td>
-            </tr>
 
-            <tr>
-              <td rowspan="3">포비든 알케미스트</td>
-              <td>살</td>
-              <td>알름</td>
-              <td>에바드</td>
-              <td>스파이럴 이럽션</td>
-            </tr>
-            <tr>
-              <td>리스</td>
-              <td>콜</td>
-              <td>우르</td>
-              <td>케미컬 카니발</td>
-            </tr>
-            <tr>
-              <td>페른</td>
-              <td>루스</td>
-              <td>온</td>
-              <td>8월 예정</td>
-            </tr>
+          <!-- 세인트 바드 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              세인트 바드
+            </td>
 
-            <tr>
-              <td rowspan="3">멜로딕 퍼피티어</td>
-              <td>리스</td>
-              <td>게탈</td>
-              <td>스트라프</td>
-              <td>인터루트 슬래시</td>
-            </tr>
-            <tr>
-              <td>페른</td>
-              <td>민</td>
-              <td>이핀</td>
-              <td>다운비트 악센트</td>
-            </tr>
-            <tr>
-              <td>닌</td>
-              <td>디르</td>
-              <td>우르</td>
-              <td>8월 예정</td>
-            </tr>
+            <td>살</td>
+            <td>오르</td>
+            <td>페헤</td>
+            <td>정화의 고동</td>
+          </tr>
 
-            <tr>
-              <td rowspan="3">퓨리 파이터</td>
-              <td>닌</td>
-              <td>알름</td>
-              <td>에만콜</td>
-              <td>게일 피어스</td>
-            </tr>
-            <tr>
-              <td>페른</td>
-              <td>케르트</td>
-              <td>일란드</td>
-              <td>얼티밋 스트라이크</td>
-            </tr>
-            <tr>
-              <td>베헤</td>
-              <td>우흐</td>
-              <td>스트라프</td>
-              <td>8월 예정</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+          <tr>
+            <td>닌</td>
+            <td>티너</td>
+            <td>민</td>
+            <td>음파의 세례</td>
+          </tr>
+
+          <tr>
+            <td>페른</td>
+            <td>쿨</td>
+            <td>일란드</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 다크 메이지 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              다크 메이지
+            </td>
+
+            <td>베헤</td>
+            <td>스트라프</td>
+            <td>일란드</td>
+            <td>스노우 스톰</td>
+          </tr>
+
+          <tr>
+            <td>리스</td>
+            <td>우흐</td>
+            <td>온</td>
+            <td>익스플로전 런지</td>
+          </tr>
+
+          <tr>
+            <td>살</td>
+            <td>고르트</td>
+            <td>에만콜</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 알케믹 스팅어 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              알케믹 스팅어
+            </td>
+
+            <td>페른</td>
+            <td>이다드</td>
+            <td>에바드</td>
+            <td>트라이 어설트</td>
+          </tr>
+
+          <tr>
+            <td>살</td>
+            <td>다르</td>
+            <td>에다드</td>
+            <td>하이드로 피어스</td>
+          </tr>
+
+          <tr>
+            <td>닌</td>
+            <td>케르트</td>
+            <td>에만콜</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 세이크리드 가드 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              세이크리드 가드
+            </td>
+
+            <td>리스</td>
+            <td>티너</td>
+            <td>온</td>
+            <td>광휘의 단죄</td>
+          </tr>
+
+          <tr>
+            <td>살</td>
+            <td>고르트</td>
+            <td>이다드</td>
+            <td>철벽 강타</td>
+          </tr>
+
+          <tr>
+            <td>베헤</td>
+            <td>게탈</td>
+            <td>이핀</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 블래스트 랜서 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              블래스트 랜서(장애)
+            </td>
+
+            <td>닌</td>
+            <td>다르</td>
+            <td>페헤</td>
+            <td>차지 어설트</td>
+          </tr>
+
+          <tr>
+            <td>베헤</td>
+            <td>에다드</td>
+            <td>에바드</td>
+            <td>오버 드라이브</td>
+          </tr>
+
+          <tr>
+            <td>리스</td>
+            <td>루스</td>
+            <td>알름</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 베리어블 거너 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              베리어블 거너
+            </td>
+
+            <td>페른</td>
+            <td>고르트</td>
+            <td>오르</td>
+            <td>헤비 아틸러리</td>
+          </tr>
+
+          <tr>
+            <td>베헤</td>
+            <td>우흐</td>
+            <td>이핀</td>
+            <td>트랜스뮤트 존</td>
+          </tr>
+
+          <tr>
+            <td>살</td>
+            <td>민</td>
+            <td>이다드</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 포비든 알케미스트 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              포비든 알케미스트
+            </td>
+
+            <td>살</td>
+            <td>알름</td>
+            <td>에바드</td>
+            <td>스파이럴 이럽션</td>
+          </tr>
+
+          <tr>
+            <td>리스</td>
+            <td>콜</td>
+            <td>우르</td>
+            <td>케미컬 카니발</td>
+          </tr>
+
+          <tr>
+            <td>페른</td>
+            <td>루스</td>
+            <td>온</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 멜로딕 퍼피티어 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              멜로딕 퍼피티어
+            </td>
+
+            <td>리스</td>
+            <td>게탈</td>
+            <td>스트라프</td>
+            <td>인터루트 슬래시</td>
+          </tr>
+
+          <tr>
+            <td>페른</td>
+            <td>민</td>
+            <td>이핀</td>
+            <td>다운비트 악센트</td>
+          </tr>
+
+          <tr>
+            <td>닌</td>
+            <td>디르</td>
+            <td>우르</td>
+            <td>8월 예정</td>
+          </tr>
+
+
+          <!-- 퓨리 파이터 -->
+          <tr class="group-start">
+            <td class="arcana-name" rowspan="3">
+              퓨리 파이터
+            </td>
+
+            <td>닌</td>
+            <td>알름</td>
+            <td>에만콜</td>
+            <td>게일 피어스</td>
+          </tr>
+
+          <tr>
+            <td>페른</td>
+            <td>케르트</td>
+            <td>일란드</td>
+            <td>얼티밋 스트라이크</td>
+          </tr>
+
+          <tr>
+            <td>베헤</td>
+            <td>우흐</td>
+            <td>스트라프</td>
+            <td>8월 예정</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+  </main>
+
 </body>
 </html>
