@@ -106,69 +106,44 @@
       background-color: #e8f0f8;
     }
 
+    /* 오른쪽 효과표 최소 너비*/
+    .effect-table {
+      min-width: 560px;
+    }
 
-/* 오른쪽 아르카나 효과표 */
-.effect-table {
-  min-width: 560px;
-}
+    .effect-table th:nth-child(1) {
+      width: 90px;
+    }
 
-/* 오른쪽 표 전체 높이와 글자 크기 */
-.effect-table th,
-.effect-table td {
-  padding: 4px 6px;
-  font-size: 12px;
-  line-height: 1.15;
-  text-align: center;
-  vertical-align: middle;
-}
+    .effect-table th:nth-child(2) {
+      width: auto;
+    }
 
-/* 구분 열 */
-.effect-table th:first-child {
-  width: 65px;
-}
+    .effect-table th:nth-child(3) {
+      width: 70px;
+    }
 
-/* 수치 열 */
-.effect-table th:last-child {
-  width: 55px;
-}
+    .effect-table td:nth-child(2) {
+      text-align: cneter;
+      padding-left: 0px;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
 
-/* 효과 내용 */
-.effect-table td:not(.arcana-name):not(:last-child) {
-  text-align: center;
-  word-break: keep-all;
-}
+    .effect-table .arcana-name {
+      font-weight: 700;
+      background-color: #dbe8f5;
+      white-space: nowrap;
+    }
 
-/* [10] 수치 */
-.effect-table td:last-child {
-  width: 55px;
-  padding-left: 0;
-  padding-right: 0;
-  text-align: center;
-  white-space: nowrap;
-}
+    .effect-table .group-start td {
+      border-top: 3px solid #222222;
+    }
 
-/* 엘나, 세바 등 아르카나 이름 */
-.effect-table .arcana-name {
-  width: 65px;
-  padding: 4px;
-  font-weight: 700;
-  text-align: center;
-  vertical-align: middle;
-  white-space: nowrap;
-  background-color: #dbe8f5;
-}
+    .effect-table tbody tr:first-child td {
+      border-top: 1px solid #222222;
+    }
 
-/* 아르카나별 굵은 구분선 */
-.effect-table .group-start td {
-  border-top: 3px solid #222222;
-}
-
-/* 첫 줄은 중복된 굵은 선 제거 */
-.effect-table tbody tr:first-child td {
-  border-top: 1px solid #222222;
-}
-
-    
     @media (max-width: 1450px) {
       .tables-container {
         grid-template-columns: 1fr;
@@ -190,149 +165,6 @@
         font-size: 19px;
       }
     }
-
-    /* ==================================================
-   추가 조정 코드
-   기존 CSS는 지우지 말고 이 코드만 마지막에 추가
-================================================== */
-
-
-/* --------------------------------------------------
-   왼쪽: 아르카나 조합표 크기 조절
-
-   padding:
-   첫 번째 숫자 = 위아래 여백
-   두 번째 숫자 = 좌우 여백
-
-   font-size:
-   글씨 크기
-
-   line-height:
-   줄 사이의 높이
--------------------------------------------------- */
-.combo-table th,
-.combo-table td {
-  padding: 6px 5px;
-  font-size: 13px;
-  line-height: 1.2;
-}
-
-
-/* 왼쪽 표의 최소 가로 크기
-   너무 작게 하면 긴 아르카나 이름이 두 줄로 내려감 */
-.combo-table {
-  min-width: 620px;
-}
-
-
-/* 왼쪽 표 제목 크기 */
-.table-section:first-child h2 {
-  font-size: 19px;
-  margin-bottom: 8px;
-}
-
-
-/* --------------------------------------------------
-   오른쪽: 아르카나 효과표 높이 축소
-
-   왼쪽 표보다 더 작은 글씨와 여백 사용
--------------------------------------------------- */
-.effect-table th,
-.effect-table td {
-  padding: 4px 5px;
-  font-size: 12px;
-  line-height: 1.15;
-  vertical-align: middle;
-}
-
-
-/* 오른쪽 표의 모든 내용 기본 가운데 정렬 */
-.effect-table th,
-.effect-table td {
-  text-align: center;
-}
-
-
-/* 효과 설명도 가운데 정렬
-   기존 nth-child 정렬을 덮어쓰기 위한 코드 */
-.effect-table td:not(.arcana-name) {
-  text-align: center;
-  padding-left: 5px;
-  padding-right: 5px;
-}
-
-
-/* [10]이 들어가는 마지막 칸
-   rowspan 때문에 nth-child 대신 last-child 사용 */
-.effect-table td:last-child {
-  width: 55px;
-  text-align: center !important;
-  padding-left: 2px;
-  padding-right: 2px;
-  white-space: nowrap;
-}
-
-
-/* 엘나, 세바, 닼메 등 아르카나 이름 */
-.effect-table .arcana-name {
-  width: 65px;
-  text-align: center !important;
-  vertical-align: middle;
-  font-weight: 700;
-  background-color: #dbe8f5;
-  white-space: nowrap;
-}
-
-
-/* 오른쪽 표의 구분 열과 수치 열 너비 */
-.effect-table th:first-child {
-  width: 65px;
-}
-
-.effect-table th:last-child {
-  width: 55px;
-}
-
-
-/* 오른쪽 표 최소 너비 */
-.effect-table {
-  min-width: 540px;
-}
-
-
-/* --------------------------------------------------
-   두 표의 가로 비율 조절
-
-   왼쪽 표가 약간 더 넓고
-   오른쪽 표가 조금 더 좁게 표시됨
--------------------------------------------------- */
-.tables-container {
-  max-width: 1400px;
-  grid-template-columns:
-    minmax(620px, 1.1fr)
-    minmax(540px, 0.9fr);
-  gap: 18px;
-}
-
-
-/* --------------------------------------------------
-   모바일 설정
--------------------------------------------------- */
-@media (max-width: 700px) {
-  .combo-table th,
-  .combo-table td {
-    padding: 5px 4px;
-    font-size: 12px;
-  }
-
-  .effect-table th,
-  .effect-table td {
-    padding: 3px 4px;
-    font-size: 11px;
-  }
-}
-
-    
   </style>
 </head>
 
@@ -558,227 +390,5 @@
         </table>
       </div>
     </section>
-
-    <!-- 오른쪽: 아르카나 효과표 -->
-    <section class="table-section">
-      <h2>아르카나 효과표</h2>
-
-      <div class="table-wrap">
-        <table class="effect-table">
-          <thead>
-            <tr>
-              <th>구분</th>
-              <th>효과</th>
-              <th>수치</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr class="group-start">
-              <td rowspan="4" class="arcana-name">엘나</td>
-              <td>파이어 리프 어택 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>아이스 윈드밀 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>라이트닝 스매시 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>라인 브레이크 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="4" class="arcana-name">세바</td>
-              <td>활력의 목소리 초당 생명력 회복량 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>구원의 메아리 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>정화의 고동 초당 대미지 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>음파의 세례 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="4" class="arcana-name">닼메</td>
-              <td>익스플로전 런지 파이어 최대 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>라이트닝 체인 전격 최대 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>스노우 스톰 초당 아이스 최대 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>레이턴트 이그니션 파이어 최대 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="5" class="arcana-name">알스</td>
-              <td>플레임 버스트 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>하이드로 피어스 최대 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>라인 포스 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>더스트 샷 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>트라이 어설트 일반 공격, 피니시 공격의 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="5" class="arcana-name">세가</td>
-              <td>성역 전개 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>격돌 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>철벽 강타 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>심판의 일격 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>광휘의 단죄 2단계부터 단계당 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="5" class="arcana-name">장애</td>
-              <td>임팩트 크러시 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>스파이럴 볼텍스 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>차지 어설트 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>오버 드라이브 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>어나이얼레이션 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="4" class="arcana-name">거너</td>
-              <td>래피드 파이어 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>헤비 아틸러리 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>데바스테이션 캐논 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>페이탈 스코프 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="3" class="arcana-name">포알</td>
-              <td>서먼 나이트메어 (흙 연금술 효과) 스킬 최종 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>케미컬 카니발 (불 연금술 효과) 주 목표물에게 주는 최종 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>스파이럴 이럽션 (물 연금술 효과) 스킬 최종 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="5" class="arcana-name">멜퍼</td>
-              <td>다운비트 악센트 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>트래킹 스텝 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>그랜드 피날레 콜로서스, 피에로, 에코 마리오네트 추가 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>와이어 웹 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>인터루드 슬래시 4막: 질투의 화신 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-
-            <tr class="group-start">
-              <td rowspan="6" class="arcana-name">퓨파</td>
-              <td>익시드 : 체인 블로우 3회 공격 및 피니시 공격의 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>익시드 : 임팩트 다이브 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>익시드 : 포스 슬램 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>게일 피어스 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>얼티밋 스트라이크 2회 공격 및 피니시 공격의 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-            <tr>
-              <td>포스 플레어 대미지 배율 증가</td>
-              <td>[10]</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-  </div>
-
 </body>
 </html>
