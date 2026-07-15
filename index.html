@@ -190,6 +190,149 @@
         font-size: 19px;
       }
     }
+
+    /* ==================================================
+   추가 조정 코드
+   기존 CSS는 지우지 말고 이 코드만 마지막에 추가
+================================================== */
+
+
+/* --------------------------------------------------
+   왼쪽: 아르카나 조합표 크기 조절
+
+   padding:
+   첫 번째 숫자 = 위아래 여백
+   두 번째 숫자 = 좌우 여백
+
+   font-size:
+   글씨 크기
+
+   line-height:
+   줄 사이의 높이
+-------------------------------------------------- */
+.combo-table th,
+.combo-table td {
+  padding: 6px 5px;
+  font-size: 13px;
+  line-height: 1.2;
+}
+
+
+/* 왼쪽 표의 최소 가로 크기
+   너무 작게 하면 긴 아르카나 이름이 두 줄로 내려감 */
+.combo-table {
+  min-width: 620px;
+}
+
+
+/* 왼쪽 표 제목 크기 */
+.table-section:first-child h2 {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+
+
+/* --------------------------------------------------
+   오른쪽: 아르카나 효과표 높이 축소
+
+   왼쪽 표보다 더 작은 글씨와 여백 사용
+-------------------------------------------------- */
+.effect-table th,
+.effect-table td {
+  padding: 4px 5px;
+  font-size: 12px;
+  line-height: 1.15;
+  vertical-align: middle;
+}
+
+
+/* 오른쪽 표의 모든 내용 기본 가운데 정렬 */
+.effect-table th,
+.effect-table td {
+  text-align: center;
+}
+
+
+/* 효과 설명도 가운데 정렬
+   기존 nth-child 정렬을 덮어쓰기 위한 코드 */
+.effect-table td:not(.arcana-name) {
+  text-align: center;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+
+/* [10]이 들어가는 마지막 칸
+   rowspan 때문에 nth-child 대신 last-child 사용 */
+.effect-table td:last-child {
+  width: 55px;
+  text-align: center !important;
+  padding-left: 2px;
+  padding-right: 2px;
+  white-space: nowrap;
+}
+
+
+/* 엘나, 세바, 닼메 등 아르카나 이름 */
+.effect-table .arcana-name {
+  width: 65px;
+  text-align: center !important;
+  vertical-align: middle;
+  font-weight: 700;
+  background-color: #dbe8f5;
+  white-space: nowrap;
+}
+
+
+/* 오른쪽 표의 구분 열과 수치 열 너비 */
+.effect-table th:first-child {
+  width: 65px;
+}
+
+.effect-table th:last-child {
+  width: 55px;
+}
+
+
+/* 오른쪽 표 최소 너비 */
+.effect-table {
+  min-width: 540px;
+}
+
+
+/* --------------------------------------------------
+   두 표의 가로 비율 조절
+
+   왼쪽 표가 약간 더 넓고
+   오른쪽 표가 조금 더 좁게 표시됨
+-------------------------------------------------- */
+.tables-container {
+  max-width: 1400px;
+  grid-template-columns:
+    minmax(620px, 1.1fr)
+    minmax(540px, 0.9fr);
+  gap: 18px;
+}
+
+
+/* --------------------------------------------------
+   모바일 설정
+-------------------------------------------------- */
+@media (max-width: 700px) {
+  .combo-table th,
+  .combo-table td {
+    padding: 5px 4px;
+    font-size: 12px;
+  }
+
+  .effect-table th,
+  .effect-table td {
+    padding: 3px 4px;
+    font-size: 11px;
+  }
+}
+
+    
   </style>
 </head>
 
