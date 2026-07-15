@@ -106,44 +106,69 @@
       background-color: #e8f0f8;
     }
 
-    /* 오른쪽 효과표 최소 너비*/
-    .effect-table {
-      min-width: 560px;
-    }
 
-    .effect-table th:nth-child(1) {
-      width: 90px;
-    }
+/* 오른쪽 아르카나 효과표 */
+.effect-table {
+  min-width: 560px;
+}
 
-    .effect-table th:nth-child(2) {
-      width: auto;
-    }
+/* 오른쪽 표 전체 높이와 글자 크기 */
+.effect-table th,
+.effect-table td {
+  padding: 4px 6px;
+  font-size: 12px;
+  line-height: 1.15;
+  text-align: center;
+  vertical-align: middle;
+}
 
-    .effect-table th:nth-child(3) {
-      width: 70px;
-    }
+/* 구분 열 */
+.effect-table th:first-child {
+  width: 65px;
+}
 
-    .effect-table td:nth-child(2) {
-      text-align: cneter;
-      padding-left: 0px;
-      line-height: 1.5;
-      word-break: keep-all;
-    }
+/* 수치 열 */
+.effect-table th:last-child {
+  width: 55px;
+}
 
-    .effect-table .arcana-name {
-      font-weight: 700;
-      background-color: #dbe8f5;
-      white-space: nowrap;
-    }
+/* 효과 내용 */
+.effect-table td:not(.arcana-name):not(:last-child) {
+  text-align: center;
+  word-break: keep-all;
+}
 
-    .effect-table .group-start td {
-      border-top: 3px solid #222222;
-    }
+/* [10] 수치 */
+.effect-table td:last-child {
+  width: 55px;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: center;
+  white-space: nowrap;
+}
 
-    .effect-table tbody tr:first-child td {
-      border-top: 1px solid #222222;
-    }
+/* 엘나, 세바 등 아르카나 이름 */
+.effect-table .arcana-name {
+  width: 65px;
+  padding: 4px;
+  font-weight: 700;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-color: #dbe8f5;
+}
 
+/* 아르카나별 굵은 구분선 */
+.effect-table .group-start td {
+  border-top: 3px solid #222222;
+}
+
+/* 첫 줄은 중복된 굵은 선 제거 */
+.effect-table tbody tr:first-child td {
+  border-top: 1px solid #222222;
+}
+
+    
     @media (max-width: 1450px) {
       .tables-container {
         grid-template-columns: 1fr;
